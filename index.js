@@ -346,12 +346,12 @@ function evaluateExpression(expression) {
   // Якщо була виявлена помилка повертаємо помилку при виконанні функції eval
   try {
     const result = eval(expression);
-    if (!result) {
-      throw new EvalError("Помилка при обчисленні виразу:");
-    }
+    // if (!result) {
+    //   throw new EvalError("Помилка при обчисленні виразу:");
+    // }
     return result;
   } catch (error) {
-    return error.message;
+    return new EvalError(error.message);
   }
 }
 
